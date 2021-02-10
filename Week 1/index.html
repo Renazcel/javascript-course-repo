@@ -40,24 +40,12 @@
         {
             var day = new Date();
             var hour = day.getHours();
-            //hour = placeZeroes(hour);
             var minute = day.getMinutes();
-            //minute = placeZeroes(minute);
             var second = day.getSeconds();
-            //second = placeZeroes(second);
 
             var timeString = hour + ":" + minute + ":" + second;
             document.getElementById('clock').innerHTML = timeString;
             setTimeout(printTime, 1000);
-
-            function placeZeroes(value)
-            {
-                if (value < 10)
-                {
-                    value = "0" + value; //typecast value as str??
-                    return value;
-                }
-            }
         }
 
         printTime();
