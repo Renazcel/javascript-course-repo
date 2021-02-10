@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 1 Task 1</title>
+    <title>Week 1</title>
 </head>
 <body>
     <p> Hello, world!<br/>
@@ -18,7 +18,9 @@
         <input type='radio' name='timezone' value='pst'> Pacific Standard Time <br/>
         <button type='button' value='Submit' onclick="readForm()">Submit</button>
     </form>
-    <div id='tz'></div>
+    <div id='tz'></div><br/>
+    <div id='clock'></div>
+
     <script type='text/javascript'>
         function readForm()
         {
@@ -33,6 +35,32 @@
             }
             document.getElementById('tz').innerHTML = selectedButton.value;
         }
+
+        function printTime()
+        {
+            var day = new Date();
+            var hour = day.getHours();
+            //hour = placeZeroes(hour);
+            var minute = day.getMinutes();
+            //minute = placeZeroes(minute);
+            var second = day.getSeconds();
+            //second = placeZeroes(second);
+
+            var timeString = hour + ":" + minute + ":" + second;
+            document.getElementById('clock').innerHTML = timeString;
+            setTimeout(printTime, 1000);
+
+            function placeZeroes(value)
+            {
+                if (value < 10)
+                {
+                    value = "0" + value; //typecast value as str??
+                    return value;
+                }
+            }
+        }
+
+        printTime();
     </script>
 </body>
 </html>
