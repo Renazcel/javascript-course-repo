@@ -83,7 +83,17 @@
                 return value;
             }
         }
+        function printTime()
+        {
+            var day = new Date();
+            var hour = day.getHours();
+            var minute = day.getMinutes();
+            var second = day.getSeconds();
 
+            var timeString = hour + ":" + minute + ":" + second;
+            document.getElementById('clock').innerHTML = timeString;
+            setTimeout(printTime, 1000);
+        }
         printTime();
     </script>
 </body>
