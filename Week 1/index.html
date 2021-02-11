@@ -16,7 +16,7 @@
         <input type='radio' name='timezone' value='cst'> Central Standard Time <br/>
         <input type='radio' name='timezone' value='mst'> Mountain Standard Time <br/>
         <input type='radio' name='timezone' value='pst'> Pacific Standard Time <br/>
-        <button type='button' value='Submit' onclick="readForm()"> Submit </button>
+        <button type='button' value='Submit' onclick="readForm()">Submit</button>
     </form>
     <div id='tz'></div><br/>
     <div id='clock'></div>
@@ -37,7 +37,7 @@
             }
 
             switch (selectedButton.value)
-            {   //I am in EST which means that the offset is negative
+            {   //I am in EST which means that the offset, when added, is negative
                 case 'est':
                     hourOffset = 0;
                     break;
@@ -83,17 +83,7 @@
                 return value;
             }
         }
-        function printTime()
-        {
-            var day = new Date();
-            var hour = day.getHours();
-            var minute = day.getMinutes();
-            var second = day.getSeconds();
 
-            var timeString = hour + ":" + minute + ":" + second;
-            document.getElementById('clock').innerHTML = timeString;
-            setTimeout(printTime, 1000);
-        }
         printTime();
     </script>
 </body>
