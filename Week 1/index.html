@@ -23,11 +23,11 @@
 
     <script type='text/javascript'>
         var hourOffset = 0;
+        var radioButtons = document.getElementsByName('timezone');
+        var selectedButton = radioButtons[0].value;
 
         function readForm()
         {
-            var radioButtons = document.getElementsByName('timezone');
-            var selectedButton = radioButtons[0].value;
             for (var i = 0; i < radioButtons.length; i++)
             {
                 if (radioButtons[i].checked)
@@ -38,6 +38,9 @@
 
             switch (selectedButton.value)
             {   //I am in EST which means that the offset, when added, is negative
+                case 'est':
+                    hourOffset = 0;
+                    break;
                 case 'cst':
                     hourOffset = -1;
                     break;
@@ -57,12 +60,28 @@
         {
             var day = new Date();
             var hour = day.getHours() + hourOffset;
+            hour = placeZeroes(hour);
             var minute = day.getMinutes();
+            minute = placeZeroes(minute);
             var second = day.getSeconds();
+            second = placeZeroes(second);
 
             var timeString = hour + ":" + minute + ":" + second;
             document.getElementById('clock').innerHTML = timeString;
             setTimeout(printTime, 1000);
+        }
+
+        function placeZeroes(value)
+        {
+            if (value < 10)
+            {
+                value = "0" + value.toString();
+                return value;
+            }
+            else
+            {
+                return value;
+            }
         }
 
         printTime();
