@@ -4,11 +4,97 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Week 2</title>
 </head>
 <body>
-    <p> github is weird :( <br/>
-        now I DO hate github
-    </p>
+    <p> Select Timezone: </p>
+    <form>
+        <input type='radio' name='timezone' value='est'> Eastern Standard Time <br/>
+        <input type='radio' name='timezone' value='cst'> Central Standard Time <br/>
+        <input type='radio' name='timezone' value='mst'> Mountain Standard Time <br/>
+        <input type='radio' name='timezone' value='pst'> Pacific Standard Time <br/>
+        <button type='button' value='Submit' onclick="readForm()">Submit</button>
+    </form>
+    <div id='tz'></div><br/>
+    <div id='clock'></div>
+
+    <script type='text/javascript'>
+        var hourOffset = 0;
+        var radioButtons = document.getElementsByName('timezone');
+        var selectedButton = radioButtons[0].value;
+
+        function readForm()
+        {
+            for (var i = 0; i < radioButtons.length; i++)
+            {
+                if (radioButtons[i].checked)
+                {
+                    selectedButton = radioButtons[i];
+                }
+            }
+
+            switch (selectedButton.value)
+            {   //I am in EST which means that the offset, when added, is negative
+                case 'est':
+                    hourOffset = 0;
+                    break;
+                case 'cst':
+                    hourOffset = -1;
+                    break;
+                case 'mst':
+                    hourOffset = -2;
+                    break;
+                case 'pst':
+                    hourOffset = -3;
+                    break;
+            }
+
+            document.getElementById('tz').innerHTML = selectedButton.value;
+            printTime();
+        }
+
+        function printTime()
+        {
+            var day = new Date();
+            var hour = day.getHours() + hourOffset;
+            hour = placeZeroes(hour);
+            var minute = day.getMinutes();
+            minute = placeZeroes(minute);
+            var second = day.getSeconds();
+            second = placeZeroes(second);
+            var session = "AM";
+
+            if (hour == 0)
+            {
+                hour = 12;
+                session = "AM";
+            }
+            if (hour > 12)
+            {
+                hour = hour - 12;
+                session = "PM";
+            }
+
+            var timeString = hour + ":" + minute + ":" + second + " " + session;
+            document.getElementById('clock').innerHTML = timeString;
+            setTimeout(printTime, 1000);
+        }
+
+        function placeZeroes(value)
+        {
+            if (value < 10)
+            {
+                value = "0" + value.toString();
+                return value;
+            }
+            else
+            {
+                return value;
+            }
+        }
+
+        printTime();
+    </script>
 </body>
 </html>

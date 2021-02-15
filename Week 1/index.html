@@ -65,8 +65,20 @@
             minute = placeZeroes(minute);
             var second = day.getSeconds();
             second = placeZeroes(second);
+            var session = "AM";
 
-            var timeString = hour + ":" + minute + ":" + second;
+            if (hour == 0)
+            {
+                hour = 12;
+                session = "AM";
+            }
+            if (hour > 12)
+            {
+                hour = hour - 12;
+                session = "PM";
+            }
+
+            var timeString = hour + ":" + minute + ":" + second + " " + session;
             document.getElementById('clock').innerHTML = timeString;
             setTimeout(printTime, 1000);
         }
