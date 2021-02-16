@@ -16,8 +16,7 @@
         <input type='radio' name='timezone' value='pst'> Pacific Standard Time <br/>
         <button type='button' value='Submit' onclick="readForm()">Submit</button>
     </form>
-    <div id='tz'></div><br/>
-    <div id='clock'></div>
+    <p id='clock'></div>
 
     <script type='text/javascript'>
         var hourOffset = 0;
@@ -50,7 +49,6 @@
                     break;
             }
 
-            document.getElementById('tz').innerHTML = selectedButton.value;
             printTime();
         }
 
@@ -58,7 +56,6 @@
         {
             var day = new Date();
             var hour = day.getHours() + hourOffset;
-            hour = placeZeroes(hour);
             var minute = day.getMinutes();
             minute = placeZeroes(minute);
             var second = day.getSeconds();
@@ -75,6 +72,7 @@
                 hour = hour - 12;
                 session = "PM";
             }
+            hour = placeZeroes(hour);
 
             var timeString = hour + ":" + minute + ":" + second + " " + session;
             document.getElementById('clock').innerHTML = timeString;
