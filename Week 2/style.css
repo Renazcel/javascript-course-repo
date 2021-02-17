@@ -18,7 +18,20 @@ form{
     padding: 18px;
 }
 
-#clock{
+.clock{
+    width: 500px;
+    height: 200px;
     padding: 24px;
-    border: 2px solid rgb(250, 133, 78);
+    background-color: rgb(255, 249, 240);
+    border: 18px solid rgb(250, 133, 78);
+    outline: 4px solid rgb(219, 80, 0);
+    box-shadow: 
+        10px 10px 20px -7px rgba(0,0,0,0.3),
+        20px 20px 20px 10px rgba(0,0,0,0.1);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90px;
+    color: rgb(252, 200, 121);
 }
