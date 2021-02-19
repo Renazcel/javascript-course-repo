@@ -6,7 +6,7 @@
     --darker-accent-color: rgb(219, 80, 0);
 }
 
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,16 +18,16 @@ body{
     color: var(--highlight-color);
 }
 
-p{
+p {
     margin: 24px 0px;
 }
 
-.timezone{
+.timezone {
     margin: 24px;
 }
 
 /* customizing the radio buttons */
-.form{
+.form {
     position: relative;
     display: block;
     padding-left: 40px;
@@ -36,7 +36,7 @@ p{
 }
 
 /* hide original radio buttons */
-.form input{
+.form input {
     opacity: 0;
 }
 
@@ -51,16 +51,16 @@ p{
     border-radius: 50%;
 }
 
-.form:hover input ~ .checkmark{
+.form:hover input ~ .checkmark {
     background-color: var(--darker-highlight-color);
 }
 
-.form input:checked ~ .checkmark{
+.form input:checked ~ .checkmark {
     background-color: var(--accent-color);
 }
 
 /* customizing button */
-.button{
+.button {
     background-color: var(--accent-color);
     border: none;
     margin: 12px;
@@ -75,7 +75,7 @@ p{
 }
 
 /* customizing clock */
-.clock{
+.clock {
     /* analog clock */
     position: relative;
     width: 500px;
@@ -108,7 +108,8 @@ p{
     */
 }
 
-.clock::after{
+.clock::after {
+    z-index: 20;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -120,7 +121,39 @@ p{
     border-radius: 50%;
 }
 
-.clock .number{
+.clock .hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    height: 43%;
+    width: 10px;
+    transform: translate(-50%, 0);
+
+    background-color: var(--accent-color);
+    border: 1px solid var(--darker-highlight-color);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.clock .hand.hour {
+    z-index: 10;
+    height: 35%;
+    width: 14px;
+}
+
+.clock .hand.minute {
+    z-index: 11;
+}
+
+.clock .hand.second {
+    z-index: 12;
+    height: 48%;
+    width: 4px;
+    background-color: var(--darker-accent-color);
+}
+
+.clock .number {
+    z-index: 9;
     position: absolute;
     width: 100%;
     height: 100%;
