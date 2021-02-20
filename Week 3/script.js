@@ -1,3 +1,4 @@
+// form support
 var radioButtons = document.getElementsByName('timezone');
 var selectedButton = radioButtons[0].value;
 var hourOffset = 0;
