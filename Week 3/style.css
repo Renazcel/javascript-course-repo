@@ -1,4 +1,4 @@
-:root {
+:root { /* color palette support */
     --base-color: rgb(252, 200, 121);
     --highlight-color: rgb(255, 255, 255);
     --darker-highlight-color: rgb(255, 241, 219);
@@ -13,7 +13,7 @@ body {
     min-height: 100vh;
 
     background-color: var(--base-color);
-    font-family: "Trebuchet MS", Verdana, sans-serif;
+    font-family: "Noto Sans", "Trebuchet MS", sans-serif;
     font-size: 32px;
     color: var(--highlight-color);
 }
@@ -43,7 +43,7 @@ p {
 /* create new ones with it changing colors if youre hovering over it or clicked on it */
 .checkmark {
     position: absolute;
-    top: 5px;
+    top: 10px;
     left: 0px;
     height: 25px;
     width: 25px;
