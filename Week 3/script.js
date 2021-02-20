@@ -1,6 +1,11 @@
-var hourOffset = 0;
 var radioButtons = document.getElementsByName('timezone');
 var selectedButton = radioButtons[0].value;
+var hourOffset = 0;
+
+// analog clock support
+const hourHand = document.querySelector('[data-hour-hand]');
+const minuteHand = document.querySelector('[data-minute-hand]');
+const secondHand = document.querySelector('[data-second-hand]');
 
 function readForm() {
     for (var i = 0; i < radioButtons.length; i++) {
@@ -24,10 +29,19 @@ function readForm() {
             break;
     }
 
-    printTime();
+    showTime();
 }
 
-function printTime() { /*
+function showTime() {
+    const day = new Date();
+    const secondsRatio = day.getSeconds() / 60;
+    setRotation(secondHand, secondsRatio);
+    const minutesRatio = (day.getMinutes() + secondsRatio) /60;
+    setRotation(minuteHand, minutesRatio);
+    const hoursRatio = (day.getHours() + minutesRatio + hourOffset) / 12;
+    setRotation(hourHand, hoursRatio);
+    
+    /* // digital clock
     var day = new Date();
     var hour = day.getHours() + hourOffset;
     var minute = day.getMinutes();
@@ -48,10 +62,15 @@ function printTime() { /*
 
     var timeString = hour + ":" + minute + ":" + second + " " + session;
     document.getElementById('clock').innerHTML = timeString;
-    setTimeout(printTime, 1000);
     */
 }
 
+// used for analog clock
+function setRotation(element, rotationRatio) {
+    element.style.setProperty('--rotation', rotationRatio * 360)
+}
+
+// used for digital clock
 function placeZeroes(value) {
     if (value < 10) {
         value = "0" + value.toString();
@@ -62,4 +81,5 @@ function placeZeroes(value) {
     }
 }
 
-printTime();
+setInterval(showTime, 1000)
+showTime();

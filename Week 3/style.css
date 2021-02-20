@@ -127,7 +127,9 @@ p {
     left: 50%;
     height: 43%;
     width: 10px;
-    transform: translate(-50%, 0);
+    --rotation: 0;
+    transform-origin: bottom;
+    transform: translate(-50%, 0) rotate(calc(var(--rotation) * 1deg));
 
     background-color: var(--accent-color);
     border: 1px solid var(--darker-highlight-color);
