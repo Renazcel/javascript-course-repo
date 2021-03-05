@@ -86,12 +86,17 @@ setInterval(showTime, 1000)
 showTime();
 
 function createTicks(){
-    for (var i = 1; i <= 12; i++) {
+    for (var i = 1; i <= 60; i++) {
         const tickParent = document.createElement("div");
-        tickParent.classList.add("tick-wrapper", `number${i}`);
+        tickParent.classList.add("tick-wrapper", `tick${i}`);
     
         const tick = document.createElement("div");
-        tick.classList.add("bold-tick", `number${i}`);
+        if (i % 5 == 0){
+            tick.classList.add("bold-tick", `number${i}`);
+        }
+        else {
+            tick.classList.add("thin-tick", `number${i}`);
+        }
         tickParent.appendChild(tick);
     
         const clock = document.querySelector(".clock");

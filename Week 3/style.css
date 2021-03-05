@@ -119,6 +119,7 @@ p {
     height: 30px;
     background-color: var(--accent-color);
     border-radius: 50%;
+    border: 1px solid var(--darker-highlight-color);
 }
 
 .clock .hand {
@@ -179,17 +180,18 @@ p {
 .clock .number10 { --rotation: 300deg; }
 .clock .number11 { --rotation: 330deg; }
 
-.clock .number1 .text1 { transform: rotate(330deg); }
-.clock .number2 .text2 { transform: rotate(300deg); }
-.clock .number3 .text3 { transform: rotate(270deg); }
-.clock .number4 .text4 { transform: rotate(240deg); }
-.clock .number5 .text5 { transform: rotate(210deg); }
-.clock .number6 .text6 { transform: rotate(180deg); }
-.clock .number7 .text7 { transform: rotate(150deg); }
-.clock .number8 .text8 { transform: rotate(120deg); }
-.clock .number9 .text9 { transform: rotate(90deg); }
-.clock .number10 .text10 { transform: rotate(60deg); }
-.clock .number11 .text11 { transform: rotate(30deg); }
+.clock .number .text { transform: rotate(calc(360deg - var(--rotation))); }
+/* .clock .number1 .text1 { transform: rotate(calc(360deg - var(--rotation))); }
+.clock .number2 .text2 { transform: rotate(calc(360deg - var(--rotation))); }
+.clock .number3 .text3 { transform: rotate(calc(360deg - var(--rotation))); }
+.clock .number4 .text4 { transform: rotate(calc(360deg - var(--rotation))); }
+.clock .number5 .text5 { transform: rotate(calc(360deg - var(--rotation))); }
+.clock .number6 .text6 { transform: rotate(calc(360deg - var(--rotation))); }
+.clock .number7 .text7 { transform: rotate(calc(360deg - var(--rotation))); }
+.clock .number8 .text8 { transform: rotate(calc(360deg - var(--rotation))); }
+.clock .number9 .text9 { transform: rotate(calc(360deg - var(--rotation))); }
+.clock .number10 .text10 { transform: rotate(calc(360deg - var(--rotation))); }
+.clock .number11 .text11 { transform: rotate(calc(360deg - var(--rotation))); } */
 
 .tick-wrapper {
     z-index: 8;
@@ -200,8 +202,8 @@ p {
     box-sizing: border-box;
     text-align: center;
 
-    transform: rotate(var(--rotation));
-
+    --tick-rotation: 0;
+    transform: rotate(var(--tick-rotation));
 }
 
 .tick-wrapper .bold-tick {
@@ -211,3 +213,85 @@ p {
     height: 16px;
     width: 4px;
 }
+
+.tick-wrapper .thin-tick {
+    position: absolute;
+    display: inline-block;
+    background-color: var(--accent-color);
+    height: 14px;
+    width: 2px;
+}
+
+.tick5 { --tick-rotation: 30deg; }
+.tick10 { --tick-rotation: 60deg; }
+.tick15 { --tick-rotation: 90deg; }
+.tick20 { --tick-rotation: 120deg; }
+.tick25 { --tick-rotation: 150deg; }
+.tick30 { --tick-rotation: 180deg; }
+.tick35 { --tick-rotation: 210deg; }
+.tick40 { --tick-rotation: 240deg; }
+.tick45 { --tick-rotation: 270deg; }
+.tick50 { --tick-rotation: 300deg; }
+.tick55 { --tick-rotation: 330deg; }
+
+
+
+.tick1 { --tick-rotation: 6deg; }
+.tick2 { --tick-rotation: 12deg; }
+.tick3 { --tick-rotation: 18deg; }
+.tick4 { --tick-rotation: 24deg; }
+
+.tick6 { --tick-rotation: 36deg; }
+.tick7 { --tick-rotation: 42deg; }
+.tick8 { --tick-rotation: 48deg; }
+.tick9 { --tick-rotation: 54deg; }
+
+.tick11 { --tick-rotation: 66deg; }
+.tick12 { --tick-rotation: 72deg; }
+.tick13 { --tick-rotation: 78deg; }
+.tick14 { --tick-rotation: 84deg; }
+
+.tick16 { --tick-rotation: 96deg; }
+.tick17 { --tick-rotation: 102deg; }
+.tick18 { --tick-rotation: 108deg; }
+.tick19 { --tick-rotation: 114deg; }
+
+.tick21 { --tick-rotation: 126deg; }
+.tick22 { --tick-rotation: 132deg; }
+.tick23 { --tick-rotation: 138deg; }
+.tick24 { --tick-rotation: 144deg; }
+
+.tick26 { --tick-rotation: 156deg; }
+.tick27 { --tick-rotation: 162deg; }
+.tick28 { --tick-rotation: 168deg; }
+.tick29 { --tick-rotation: 174deg; }
+
+.tick31 { --tick-rotation: 186deg; }
+.tick32 { --tick-rotation: 192deg; }
+.tick33 { --tick-rotation: 198deg; }
+.tick34 { --tick-rotation: 204deg; }
+
+.tick36 { --tick-rotation: 216deg; }
+.tick37 { --tick-rotation: 222deg; }
+.tick38 { --tick-rotation: 228deg; }
+.tick39 { --tick-rotation: 234deg; }
+
+.tick41 { --tick-rotation: 246deg; }
+.tick42 { --tick-rotation: 252deg; }
+.tick43 { --tick-rotation: 258deg; }
+.tick44 { --tick-rotation: 264deg; }
+
+.tick46 { --tick-rotation: 276deg; }
+.tick47 { --tick-rotation: 282deg; }
+.tick48 { --tick-rotation: 288deg; }
+.tick49 { --tick-rotation: 294deg; }
+
+.tick51 { --tick-rotation: 306deg; }
+.tick52 { --tick-rotation: 312deg; }
+.tick53 { --tick-rotation: 318deg; }
+.tick54 { --tick-rotation: 324deg; }
+
+.tick56 { --tick-rotation: 336deg; }
+.tick57 { --tick-rotation: 342deg; }
+.tick58 { --tick-rotation: 348deg; }
+.tick59 { --tick-rotation: 354deg; }
