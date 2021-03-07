@@ -85,6 +85,10 @@ button:hover {
     5px 8px 20px -10px rgba(0,0,0,0.6)
 } */
 
+.view {
+    padding: 12px;
+    margin-right: 24px;
+}
 
 /* customizing clock */
 .digital {
