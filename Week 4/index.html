@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans|DotGothic16">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <title>Week 2</title>
+</head>
+<body>
+    <div class="timezone">
+    <p><strong>Select Timezone: </strong></p>
+    <form onclick="readForm()">
+        <label class="form">Eastern Standard Time
+            <input type="radio" checked="checked" name="timezone" value='est'>
+            <span class="checkmark"></span>
+        </label>
+        <label class="form">Central Standard Time
+            <input type="radio" name="timezone" value='cst'>
+            <span class="checkmark"></span>
+        </label>
+        <label class="form">Mountain Standard Time
+            <input type="radio" name="timezone" value='mst'>
+            <span class="checkmark"></span>
+        </label>
+        <label class="form">Pacific Standard Time
+            <input type="radio" name="timezone" value='pst'>
+            <span class="checkmark"></span>
+        </label>
+        <!-- <input type='radio' name='timezone' value='est'> Eastern Standard Time <br/>
+        <input type='radio' name='timezone' value='cst'> Central Standard Time <br/>
+        <input type='radio' name='timezone' value='mst'> Mountain Standard Time <br/>
+        <input type='radio' name='timezone' value='pst'> Pacific Standard Time <br/> 
+        <button type='button' class="button" value='Submit' onclick="readForm()">Submit</button> -->
+    </form>
+    </div>
+    <div class="clock" id="clock">
+        <div class="number number1"><div class="text text1">1</div></div>
+        <div class="number number2"><div class="text text2">2</div></div>
+        <div class="number number3"><div class="text text3">3</div></div>
+        <div class="number number4"><div class="text text4">4</div></div>
+        <div class="number number5"><div class="text text5">5</div></div>
+        <div class="number number6"><div class="text text6">6</div></div>
+        <div class="number number7"><div class="text text7">7</div></div>
+        <div class="number number8"><div class="text text8">8</div></div>
+        <div class="number number9"><div class="text text9">9</div></div>
+        <div class="number number10"><div class="text text10">10</div></div>
+        <div class="number number11"><div class="text text11">11</div></div>
+        <div class="number number12"><div class="text text12">12</div></div>
+
+        <div class="hand hour" data-hour-hand></div>
+        <div class="hand minute" data-minute-hand></div>
+        <div class="hand second" data-second-hand></div>
+    </div>
+    <div class="digital" id="digital clock"></div>
+</body>
+</html>
