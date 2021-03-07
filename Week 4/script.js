@@ -33,6 +33,21 @@ function readForm() {
     showTime();
 }
 
+function setAnalog(){
+    var digital = document.getElementById("digital clock");
+    var analog = document.getElementById("clock");
+    analog.style.display = "flex";
+    digital.style.display = "none";
+}
+setAnalog()
+
+function setDigital(){
+    var digital = document.getElementById("digital clock");
+    var analog = document.getElementById("clock");
+    digital.style.display = "flex";
+    analog.style.display = "none";
+}
+
 function showTime() {
     // analog clock
     const day = new Date();
